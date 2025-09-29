@@ -1,0 +1,32 @@
+{
+  "name": "valid-syntax",
+  "displayName": "Valid Syntax Highlighting",
+  "description": "Syntax highlighting for the Valid programming language.",
+  "version": "0.0.3",
+  "publisher": "fabio-spreafico",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Languages"
+  ],
+  "main": "./out/extention.js",
+  "activationEvents": ["onLanguage:valid"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "valid",
+        "aliases": ["Valid", "valid"],
+        "extensions": [".tst", ".vld"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "valid",
+        "scopeName": "source.valid",
+        "path": "./syntaxes/valid.tmLanguage.json"
+      }
+    ]
+  }
+}
