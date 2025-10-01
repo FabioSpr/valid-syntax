@@ -5,19 +5,27 @@
   "version": "0.0.3",
   "publisher": "fabio-spreafico",
   "engines": {
-    "vscode": "^1.50.0"
+    "vscode": "^1.70.0"
   },
   "categories": [
-    "Languages"
+    "Programming Languages"
   ],
-  "main": "./out/extention.js",
-  "activationEvents": ["onLanguage:valid"],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:valid"
+  ],
   "contributes": {
     "languages": [
       {
         "id": "valid",
-        "aliases": ["Valid", "valid"],
-        "extensions": [".tst", ".vld"],
+        "aliases": [
+          "Valid",
+          "valid"
+        ],
+        "extensions": [
+          ".tst",
+          ".vld"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -25,8 +33,24 @@
       {
         "language": "valid",
         "scopeName": "source.valid",
-        "path": "./syntaxes/valid.tmLanguage.json"
+        "path": "./syntaxes/valid.tmlanguage.json"
       }
     ]
-  }
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.6.0",
+    "typescript": "^5.9.3",
+    "@types/vscode": "^1.70.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vscode:prepublish": "npx vsce package",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0",
+  "type": "commonjs"
 }

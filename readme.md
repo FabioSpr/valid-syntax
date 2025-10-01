@@ -6,7 +6,7 @@ A Visual Studio Code extension with support for the Valid language.
 ## Usage and Features
 
 - Copy the entire folder inside %USERPROFILE%/.vscode/extensions
-- Inside VSCode Extentions view you can now find the new extention called "Valid Syntax Highlighting"
+- Inside VSCode Extensions view you can now find the new extension called "Valid Syntax Highlighting"
 
 ## Settings
 
@@ -20,7 +20,7 @@ There are several settings you can configure to customize the behavior of this e
 
 ### v0.0.3
 
-Added the ".vld" extention for syntax auto detection
+Added the ".vld" extension for syntax auto detection
 
 ### v0.0.2
 
