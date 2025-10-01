@@ -1,11 +1,15 @@
 {
   "name": "valid-syntax",
-  "displayName": "Valid Syntax Highlighting",
+  "displayName": "VALID Syntax Highlighting for VS Code",
   "description": "Syntax highlighting for the Valid programming language.",
   "version": "0.0.3",
-  "publisher": "fabio-spreafico",
+  "publisher": "TXT-E-Tech",
   "engines": {
     "vscode": "^1.70.0"
+  },
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/FabioSpr/valid-syntax.git"
   },
   "categories": [
     "Programming Languages"
@@ -37,8 +41,6 @@
       }
     ]
   },
-  "dependencies": {
-  },
   "devDependencies": {
     "@vscode/vsce": "^3.6.0",
     "typescript": "^5.9.3",
@@ -46,8 +48,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vscode:prepublish": "npx vsce package",
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "vsce package && vsce publish"
   },
   "keywords": [],
   "author": "",

@@ -81,7 +81,8 @@ export function activate(context: vscode.ExtensionContext) {
         return undefined;
       }
     },
-    ...'PpRrOoCcEeDdUuTt'.split('') // trigger characters
+    // Trigger completion when typing 'P' or 'T' (start of 'Procedure' or 'Test Case')
+    ...['P', 'T', 'p', 't']
   );
 
   context.subscriptions.push(symbolProvider, completionProvider);
