@@ -2,7 +2,7 @@
   "name": "valid-syntax",
   "displayName": "VALID Syntax Highlighting for VS Code",
   "description": "Syntax highlighting for the Valid programming language.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "TXT-E-Tech",
   "engines": {
     "vscode": "^1.70.0"

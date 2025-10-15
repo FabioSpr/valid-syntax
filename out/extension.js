@@ -90,5 +90,21 @@ function activate(context) {
     }, 
     // Trigger completion when typing 'P' or 'T' (start of 'Procedure' or 'Test Case')
     ...['P', 'T', 'p', 't']);
+    // Change encoding to 'DOS'
+    vscode.workspace.onDidOpenTextDocument(async (document) => {
+        // Check if this is a 'valid' language file
+        if (document.languageId === 'valid') {
+            // Wait to avoid race conditions (optional)
+            setTimeout(async () => {
+                try {
+                    // Reopen the current file with 'DOS' encoding
+                    await vscode.commands.executeCommand('workbench.action.reopenWithEncoding', 'DOS');
+                }
+                catch (error) {
+                    console.error('Failed to reopen file with encoding:', error);
+                }
+            }, 200); // 200ms delay; adjust if necessary
+        }
+    });
     context.subscriptions.push(symbolProvider, completionProvider);
 }
