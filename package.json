@@ -48,8 +48,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "publish": "vsce package && vsce publish"
+    "build": "tsc && vsce package",
+    "publish": "vsce publish"
   },
   "keywords": [],
   "author": "",

@@ -36,6 +36,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.activate = activate;
 const vscode = __importStar(require("vscode"));
 function activate(context) {
+    const hasShownEncodingPrompt = context.globalState.get("hasShownEncodingPrompt");
+    if (!hasShownEncodingPrompt) {
+        // Show the message to the user
+        vscode.window.showInformationMessage(`For best experience, please add this lines to settings.json file: ` +
+            `Command Palette → "Preferences: Open User Settings (JSON)" ` +
+            `"[valid]": {"files.encoding": "cp437"},`);
+        // Save flag so we don't show this again
+        context.globalState.update('hasShownEncodingPrompt', true);
+    }
     // Document symbol provider
     const symbolProvider = vscode.languages.registerDocumentSymbolProvider({ language: 'valid' }, {
         provideDocumentSymbols(document) {
@@ -90,21 +99,5 @@ function activate(context) {
     }, 
     // Trigger completion when typing 'P' or 'T' (start of 'Procedure' or 'Test Case')
     ...['P', 'T', 'p', 't']);
-    // Change encoding to 'DOS'
-    vscode.workspace.onDidOpenTextDocument(async (document) => {
-        // Check if this is a 'valid' language file
-        if (document.languageId === 'valid') {
-            // Wait to avoid race conditions (optional)
-            setTimeout(async () => {
-                try {
-                    // Reopen the current file with 'DOS' encoding
-                    await vscode.commands.executeCommand('workbench.action.reopenWithEncoding', 'DOS');
-                }
-                catch (error) {
-                    console.error('Failed to reopen file with encoding:', error);
-                }
-            }, 200); // 200ms delay; adjust if necessary
-        }
-    });
     context.subscriptions.push(symbolProvider, completionProvider);
 }
